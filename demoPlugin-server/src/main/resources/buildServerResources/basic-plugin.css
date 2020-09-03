@@ -28,7 +28,7 @@
     }
 }
 
-.basic-plugin-wrapper {
+.dummy-plugin-wrapper {
     animation: rainbow 5s infinite;
     display: inline;
     word-break: break-all;

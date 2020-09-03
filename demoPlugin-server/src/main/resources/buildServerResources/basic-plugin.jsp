@@ -6,4 +6,4 @@
     </div>
 </c:if>
 
-<div class="basic-plugin-wrapper">Here is a basic plugin.</div>
+<div class="dummy-plugin-wrapper">Here is a basic plugin.<c:out value="${param['pluginUIContext']}"></c:out></div>
