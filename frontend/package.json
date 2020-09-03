@@ -1,0 +1,35 @@
+{
+  "name": "demo-plugin",
+  "version": "1.0.0",
+  "engines": {
+    "node": "^10.13.0 || >=11.10.1"
+  },
+  "private": true,
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack --bail --env.production --env.analyze",
+    "flow": "flow",
+    "docker-start": "npm install && npm run start -- --port=8080 --host 0.0.0.0",
+    "docker-build": "npm install && npm run build"
+  },
+  "dependencies": {
+    "@jetbrains/icons": "^3.7.0",
+    "@jetbrains/ring-ui": "^3.0.44",
+    "@teamcity/react-api": "0.2.4",
+    "classnames": "^2.2.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-flow": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "core-js": "^3.6.5",
+    "flow-bin": "^0.129.0",
+    "flow-typed": "^3.2.0",
+    "webpack": "^4.43.0",
+    "webpack-bundle-analyzer": "^3.8.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}

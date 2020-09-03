@@ -1,0 +1,5 @@
+.island {
+  max-width: 600px;
+  margin-top: var(--ring-unit);
+  margin-bottom: var(--ring-unit);
+}
