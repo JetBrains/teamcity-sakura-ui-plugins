@@ -1,0 +1,35 @@
+@keyframes rainbow {
+    15% {
+        color: red;
+    }
+
+    30% {
+        color: orange;
+    }
+
+    45% {
+        color: yellow;
+    }
+
+    60% {
+        color: green;
+    }
+
+    75% {
+        color: blue;
+    }
+
+    90% {
+        color: darkblue;
+    }
+
+    100% {
+        color: violet;
+    }
+}
+
+.basic-plugin-wrapper {
+    animation: rainbow 5s infinite;
+    display: inline;
+    word-break: break-all;
+}
