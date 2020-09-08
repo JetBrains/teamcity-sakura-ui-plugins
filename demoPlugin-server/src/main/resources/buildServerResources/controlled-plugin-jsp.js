@@ -1,9 +1,6 @@
 (() => {
     console.log("My Controlled plugin script from a JSP file");
-
-    if (!TeamCityAPI) {
-        TeamCityAPI = window.TeamcityReactAPI
-    }
+    const TeamCityAPI = window.TeamCityAPI || window.TeamcityReactAPI
 
     const plugin = TeamCityAPI.pluginRegistry.searchByPlaceId("SAKURA_PROJECT_BEFORE_CONTENT", "SakuraUI-Plugin")
 
