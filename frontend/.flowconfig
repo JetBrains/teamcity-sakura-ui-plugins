@@ -4,7 +4,7 @@
 [include]
 
 [libs]
-./node_modules/@teamcity/react-api
+./node_modules/@jetbrains/teamcity-api/index.js.flow
 
 [options]
 

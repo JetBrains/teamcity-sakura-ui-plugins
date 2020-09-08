@@ -15,7 +15,7 @@
   "dependencies": {
     "@jetbrains/icons": "^3.7.0",
     "@jetbrains/ring-ui": "^3.0.44",
-    "@teamcity/react-api": "0.2.4",
+    "@jetbrains/teamcity-api": "2020.2.0",
     "classnames": "^2.2.6"
   },
   "devDependencies": {

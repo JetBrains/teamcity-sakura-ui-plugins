@@ -1,7 +1,7 @@
 // @flow strict
 import {H2} from '@jetbrains/ring-ui/components/heading/heading'
-import {React} from "@teamcity/react-api"
-import type {PluginContext} from "@teamcity/react-api";
+import {React} from "@jetbrains/teamcity-api"
+import type {PluginContext} from "@jetbrains/teamcity-api";
 
 import styles from './App.css'
 
@@ -20,7 +20,10 @@ function App({location}: {| location: PluginContext |}) {
         <div className={styles.wrapper}>
             <ProfileInfo onNameClick={toggleExpanded} name={defaultProfile.name} />
             {expanded && <div>
-                {Object.entries(location).map(([key, value]) => value ? <p key={key}>{`${key}:${value}`}</p>: null)}
+                {Object.entries(location).map(
+                    ([key, value]) =>
+                        value != null && typeof value === 'string' ? <p key={key}>{`${key}:${value}`}</p>: null
+                )}
             </div>}
         </div>
     )

@@ -1,5 +1,5 @@
 // @flow strict
-import {Plugin, React} from "@teamcity/react-api"
+import {Plugin, React} from "@jetbrains/teamcity-api"
 import App from './App/App'
 import AllBuilds from "./AllBuilds/AllBuilds";
 
