@@ -11,9 +11,9 @@ public class SakuraUIPluginController {
             @NotNull PluginDescriptor descriptor,
             @NotNull PagePlaces places
     ) {
-        new SimplePageExtension(places, PlaceId.SAKURA_PROJECT_BEFORE_CONTENT, PLUGIN_NAME, descriptor.getPluginResourcesPath("advanced-plugin.jsp"))
-                .addCssFile("advanced-plugin.css")
-                .addJsFile("advanced-plugin-core.js")
+        new SimplePageExtension(places, PlaceId.SAKURA_PROJECT_BEFORE_CONTENT, PLUGIN_NAME, descriptor.getPluginResourcesPath("controlled-plugin.jsp"))
+                .addCssFile("controlled-plugin.css")
+                .addJsFile("controlled-plugin-core.js")
                 .register();
     }
 }
