@@ -1,4 +1,4 @@
-import Plugin from "@teamcity/react-api/plugin"
+import Plugin from "@jetbrains/teamcity-api/plugin"
 import App from './App/App'
 import AllBuilds from "./AllBuilds/AllBuilds";
 

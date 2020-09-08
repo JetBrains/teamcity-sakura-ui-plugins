@@ -1,6 +1,6 @@
 import {H2} from '@jetbrains/ring-ui/components/heading/heading'
-import {React} from "@teamcity/react-api"
-import type {PluginContext} from "@teamcity/react-api";
+import {React} from "@jetbrains/teamcity-api"
+import type {PluginContext} from "@jetbrains/teamcity-api";
 
 import styles from './App.css'
 

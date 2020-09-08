@@ -1,5 +1,5 @@
 const path = require('path')
-const getWebpackConfig = require('@teamcity/react-api/getWebpackConfig')
+const getWebpackConfig = require('@jetbrains/teamcity-api/getWebpackConfig')
 
 module.exports = getWebpackConfig({
     srcPath: path.join(__dirname, './src'),

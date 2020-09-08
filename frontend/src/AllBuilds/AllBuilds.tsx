@@ -1,8 +1,8 @@
 import Loader from '@jetbrains/ring-ui/components/loader/loader'
 import {H1} from '@jetbrains/ring-ui/components/heading/heading'
 import {Content}  from '@jetbrains/ring-ui/components/island/island'
-import React from '@teamcity/react-api/react'
-import TCComponents from '@teamcity/react-api/components'
+import React from '@jetbrains/teamcity-api/react'
+import TCComponents from '@jetbrains/teamcity-api/components'
 
 const AllBuilds = () => {
     const [count, setCount] = React.useState(3);
