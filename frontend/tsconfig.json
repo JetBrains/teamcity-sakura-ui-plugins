@@ -1,6 +1,1 @@
-{
-  "extends": "@tsconfig/recommended/tsconfig.json",
-  "compilerOptions": {
-    "jsx": "react"
-  }
-}
+{ "extends": "./node_modules/@jetbrains/teamcity-api/plugin.tsconfig.json" }
