@@ -11,7 +11,7 @@ There are some useful resources for this repository:
 #### Backend Part:
 To get started writing a plugin for TeamCity, set up the plugin development environment.
 
-Download and install OpenJDK 8 (e.g. by [AdoptOpenJDK](https://adoptopenjdk.net/)). Set the [JAVA_HOME](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/index.html) environment variable on your system. Java 1.8 is required, the 32-bit versionis recommended, the 64-bit version [can be used](https://www.jetbrains.com/help/teamcity/installing-and-configuring-the-teamcity-server.html).
+Download and install OpenJDK 8 (e.g. by [AdoptOpenJDK](https://adoptopenjdk.net/)). Set the [JAVA_HOME](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/index.html) environment variable on your system. Java 1.8 is required.
 
 Download and install [TeamCity](https://www.jetbrains.com/teamcity/download/) on your development machine. Since you are going to use this machine to test your plugin, it is recommended that this TeamCity server is of the same version as your production server. We are using TeamCity 10 installed on Windows in our setup.
 
