@@ -33,7 +33,6 @@ public class SakuraUIPluginController extends BaseController {
         pageExtension.setPluginName(PLUGIN_NAME);
         pageExtension.setPlaceId(PlaceId.ALL_PAGES_FOOTER);
         pageExtension.setIncludeUrl(url);
-        pageExtension.addCssFile("dummy-plugin.css");
         pageExtension.register();
 
         controllerManager.registerController(url, this);
