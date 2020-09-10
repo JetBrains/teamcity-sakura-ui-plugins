@@ -151,6 +151,7 @@ declare module '@jetbrains/ring-ui/components/heading/heading' {
     className?: string
     children?: React.ReactNode
     level?: number
+    onClick?: (e: MouseEvent) => void
   }
 
   export default class Heading extends React.Component<Props> {}

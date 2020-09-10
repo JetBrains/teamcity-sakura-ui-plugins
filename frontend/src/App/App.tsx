@@ -5,14 +5,13 @@ import type {PluginContext} from "@jetbrains/teamcity-api";
 import styles from './App.css'
 
 type ProfileInfoProps = {
-    onToggleClick: () => void
+    onNameClick: () => void
     name: string
 }
 const ProfileInfo = React.memo<ProfileInfoProps>(
-  ({onToggleClick, name}: ProfileInfoProps) =>
-    <H2 className={styles.name}>
+  ({onNameClick, name}: ProfileInfoProps) =>
+    <H2 className={styles.name} onClick={onNameClick}>
         {`Hello, ${name}`}
-        <button onClick={onToggleClick}>{'Toggle'}</button>
     </H2>
 )
 
@@ -27,7 +26,7 @@ function App({location}: {location: PluginContext}) {
 
     return (
         <div className={styles.wrapper}>
-            <ProfileInfo onToggleClick={toggleExpanded} name={defaultProfile.name} />
+            <ProfileInfo onNameClick={toggleExpanded} name={defaultProfile.name} />
             {expanded && (
               <div>
                   {Object.entries(location).map(
