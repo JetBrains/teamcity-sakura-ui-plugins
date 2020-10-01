@@ -32,7 +32,7 @@ In this case, Docker container will generate a bundle.js and put it to the direc
 
 To run a plugin using the Webpack Development server mode, use
 
-`docker-compose run dev`
+`docker-compose run --service-ports dev`
 
 In this case, the Webpack Server starts in the Docker container. By default, the Webpack Server starts on a port 8080. You can specify BUNDLE_DEV_URL as a http://localhost:8080 and use incrementally updated JavaScript file directly from the Webpack server.
 
