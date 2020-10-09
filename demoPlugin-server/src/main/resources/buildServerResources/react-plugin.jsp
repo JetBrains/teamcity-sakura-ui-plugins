@@ -8,5 +8,5 @@
   </c:when>
   <c:otherwise>
     <bs:linkScript>${teamcityPluginResourcesPath}bundle.js</bs:linkScript>
-  </  c:otherwise>
+  </c:otherwise>
 </c:choose>
