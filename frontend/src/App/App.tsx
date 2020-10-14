@@ -1,7 +1,9 @@
 import {H2} from '@jetbrains/ring-ui/components/heading/heading'
 import {React} from "@jetbrains/teamcity-api"
-import type {PluginContext} from "@jetbrains/teamcity-api";
+import type {PluginContext} from "@jetbrains/teamcity-api"
+import Icon from '@jetbrains/ring-ui/components/icon/icon'
 
+import Linux from './os-linux.svg'
 import styles from './App.css'
 
 type ProfileInfoProps = {
@@ -12,6 +14,7 @@ const ProfileInfo = React.memo<ProfileInfoProps>(
   ({onNameClick, name}: ProfileInfoProps) =>
     <H2 className={styles.name} onClick={onNameClick}>
         {`Hello, ${name}`}
+        <Icon glyph={Linux} />
     </H2>
 )
 
