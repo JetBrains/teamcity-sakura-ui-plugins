@@ -1,5 +1,6 @@
 package com.demoDomain.teamcity.demoPlugin.controllers;
 
+import com.intellij.openapi.diagnostic.Logger;
 import jetbrains.buildServer.controllers.BaseController;
 import jetbrains.buildServer.serverSide.ProjectManager;
 import jetbrains.buildServer.serverSide.SBuildType;
@@ -27,26 +28,49 @@ public class SakuraUIPluginController extends BaseController {
         myProjectManager = projectManager;
 
         String url = "/demoPlugin.html";
-        final SimplePageExtension pageExtension = new SimplePageExtension(places);
-        pageExtension.setPluginName(PLUGIN_NAME);
-        pageExtension.setPlaceId(PlaceId.SAKURA_BEFORE_CONTENT);
-        pageExtension.setIncludeUrl(url);
-        pageExtension.addCssFile("basic-plugin.css");
-        pageExtension.register();
+
+        final SimplePageExtension sakuraPageExtension = new SimplePageExtension(places);
+        sakuraPageExtension.setPluginName(PLUGIN_NAME);
+        sakuraPageExtension.setPlaceId(new PlaceId("SAKURA_BEFORE_CONTENT"));
+        sakuraPageExtension.setIncludeUrl(url);
+        sakuraPageExtension.addCssFile("basic-plugin.css");
+        sakuraPageExtension.register();
+
+        final SimplePageExtension classicPageExtension = new SimplePageExtension(places);
+        classicPageExtension.setPluginName(PLUGIN_NAME);
+        classicPageExtension.setPlaceId(PlaceId.BEFORE_CONTENT);
+        classicPageExtension.setIncludeUrl(url);
+        classicPageExtension.addCssFile("basic-plugin.css");
+        classicPageExtension.register();
 
         controllerManager.registerController(url, this);
+    }
+
+    protected boolean isSakuraUI(@NotNull HttpServletRequest request) {
+        String header = request.getHeader("X-TeamCity-Client");
+        return header != null && header.equals("Experimental UI");
     }
 
     @Nullable
     @Override
     protected ModelAndView doHandle(@NotNull HttpServletRequest request, @NotNull HttpServletResponse response) throws Exception {
         final ModelAndView mv = new ModelAndView(myPluginDescriptor.getPluginResourcesPath("basic-plugin.jsp"));
-        PluginUIContext pluginUIContext = PluginUIContext.getFromRequest(request);
-        String btId = pluginUIContext.getBuildTypeId();
+        boolean isSakuraUI = this.isSakuraUI(request);
+
+        String btId;
+
+        if (isSakuraUI) {
+            PluginUIContext pluginUIContext = PluginUIContext.getFromRequest(request);
+            btId = pluginUIContext.getBuildTypeId();
+        } else {
+            btId = request.getParameter("buildTypeId");
+        }
+
         if (btId != null) {
             SBuildType buildType = myProjectManager.findBuildTypeByExternalId(btId);
             mv.getModel().put("buildType", buildType);
         }
+
         return mv;
     }
 }
