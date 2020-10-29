@@ -4,7 +4,7 @@
 
 <c:choose>
   <c:when test="${BUNDLE_DEV_URL ne null}">
-    <script src="<c:out value="${BUNDLE_DEV_URL}" />/bundle.js" />
+    <script src="<c:out value="${BUNDLE_DEV_URL}" />/bundle.js"></script>
   </c:when>
   <c:otherwise>
     <bs:linkScript>${teamcityPluginResourcesPath}bundle.js</bs:linkScript>
