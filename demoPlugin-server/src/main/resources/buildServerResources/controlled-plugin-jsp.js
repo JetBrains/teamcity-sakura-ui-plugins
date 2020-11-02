@@ -1,12 +1,31 @@
 (() => {
-    console.log("My Controlled plugin script from a JSP file");
-    const TeamCityAPI = window.TeamCityAPI || window.TeamcityReactAPI
+    console.log("Controlled Plugin. Script invoked from the controlled-plugin-jsp.js");
+    const TeamCityAPI = window.TeamCityAPI;
+    const name = "SakuraUI-Plugin";
+    const container = document.getElementById(name);
 
-    const plugin = TeamCityAPI.pluginRegistry.searchByPlaceId("SAKURA_PROJECT_BEFORE_CONTENT", "SakuraUI-Plugin")
+    const plugin =  new TeamCityAPI.Plugin(["SAKURA_BUILD_BEFORE_CONTENT", "BUILD_RESULTS_FRAGMENT"], {
+        name,
+        content: container,
+        options: {debug:true},
+    })
 
-    const template = (context) => `<div class="controlled-plugin-wrapper">Here is a controlled plugin.${JSON.stringify(context)}</div>`
+    const template = (context) => `<div>There is a location context: ${JSON.stringify(context)}</div>`
 
     plugin.onContextUpdate((context) => {
-        plugin.replaceContent(template(context))
+        container.classList.remove("hidden");
+        const dynamicPart = container.querySelector(".js-dynamic-part");
+
+        if (dynamicPart == null) {
+            return;
+        }
+
+        while (dynamicPart.firstChild) {
+            dynamicPart.firstChild.remove();
+        }
+
+
+        console.log("Controlled Plugin. On Context Update event fired.")
+        dynamicPart.insertAdjacentHTML('afterbegin', template(context));
     })
 })()
