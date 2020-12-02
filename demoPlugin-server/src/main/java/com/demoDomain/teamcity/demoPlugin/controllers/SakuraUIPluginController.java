@@ -1,11 +1,11 @@
 package com.demoDomain.teamcity.demoPlugin.controllers;
 
-import com.intellij.openapi.diagnostic.Logger;
 import jetbrains.buildServer.controllers.BaseController;
 import jetbrains.buildServer.serverSide.ProjectManager;
 import jetbrains.buildServer.serverSide.SBuildType;
 import jetbrains.buildServer.web.openapi.*;
 import jetbrains.buildServer.web.openapi.PluginDescriptor;
+import jetbrains.buildServer.web.util.WebUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.springframework.web.servlet.ModelAndView;
@@ -46,16 +46,11 @@ public class SakuraUIPluginController extends BaseController {
         controllerManager.registerController(url, this);
     }
 
-    protected boolean isSakuraUI(@NotNull HttpServletRequest request) {
-        String header = request.getHeader("X-TeamCity-Client");
-        return header != null && header.equals("Experimental UI");
-    }
-
     @Nullable
     @Override
     protected ModelAndView doHandle(@NotNull HttpServletRequest request, @NotNull HttpServletResponse response) throws Exception {
         final ModelAndView mv = new ModelAndView(myPluginDescriptor.getPluginResourcesPath("basic-plugin.jsp"));
-        boolean isSakuraUI = this.isSakuraUI(request);
+        boolean isSakuraUI = WebUtil.sakuraUIOpened(request);
 
         String btId;
 
