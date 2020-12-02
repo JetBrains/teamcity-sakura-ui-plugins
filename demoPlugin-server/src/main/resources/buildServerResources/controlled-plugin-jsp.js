@@ -4,7 +4,7 @@
     const name = "SakuraUI-Plugin";
     const container = document.getElementById(name);
 
-    const plugin =  new TeamCityAPI.Plugin(["SAKURA_BUILD_BEFORE_CONTENT", "BUILD_RESULTS_FRAGMENT"], {
+    const plugin =  new TeamCityAPI.Plugin(["SAKURA_BUILD_OVERVIEW", "BUILD_RESULTS_FRAGMENT"], {
         name,
         content: container,
         options: {debug:true},
