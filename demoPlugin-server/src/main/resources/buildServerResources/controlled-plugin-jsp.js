@@ -1,6 +1,5 @@
 (() => {
     console.log("Controlled Plugin. Script invoked from the controlled-plugin-jsp.js");
-    const TeamCityAPI = window.TeamCityAPI;
     const name = "SakuraUI-Plugin";
     const container = document.getElementById(name);
 
