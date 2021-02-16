@@ -19,4 +19,4 @@ const AllBuilds = () => {
     </Content>
 };
 
-export default React.memo<{||}>(AllBuilds)
+export default (React.memo<{||}>(AllBuilds): React.ComponentType<{||}>)

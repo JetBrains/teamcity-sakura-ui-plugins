@@ -12,7 +12,7 @@ const defaultProfile = {
     name: "Elvis",
 }
 
-function App({location}: {| location: PluginContext |}) {
+function App({location}: {| location: PluginContext |}): React.Node {
     const [expanded, setExpanded] = React.useState(false)
     const toggleExpanded = React.useCallback(() => setExpanded(state => !state), [])
 
