@@ -17,7 +17,7 @@ Download and install [TeamCity](https://www.jetbrains.com/teamcity/download/) on
 
 Download and install a Java IDE; we are using [Intellij IDEA Community Edition](https://www.jetbrains.com/idea/download/), which has a built-in Maven integration.
 
-Download and install [Apache Maven](http://maven.apache.org/download.cgi). Maven 3.2.x is recommended. Set the M2_HOME environment variable. Run mvn -version to verify your setup. We are using Maven 3.2.5. in our setup.
+Download and install [Apache Maven](https://maven.apache.org/download.cgi). Maven 3.2.x is recommended. Set the M2_HOME environment variable. Run mvn -version to verify your setup. We are using Maven 3.2.5. in our setup.
 
 *All those steps also described in [Main Plugin Guide](https://plugins.jetbrains.com/docs/teamcity/getting-started-with-plugin-development.html)
 
