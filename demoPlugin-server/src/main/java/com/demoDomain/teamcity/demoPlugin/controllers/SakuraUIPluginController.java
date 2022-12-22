@@ -1,5 +1,6 @@
 package com.demoDomain.teamcity.demoPlugin.controllers;
 
+import com.intellij.openapi.diagnostic.Logger;
 import jetbrains.buildServer.controllers.BaseController;
 import jetbrains.buildServer.serverSide.SBuildServer;
 import jetbrains.buildServer.web.openapi.*;
@@ -14,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 public class SakuraUIPluginController extends BaseController {
     PluginDescriptor myDescriptor;
     WebControllerManager myController;
+    private static final Logger LOG = Logger.getInstance(SakuraUIPluginController.class.getName());
+
 
     public SakuraUIPluginController(
             @NotNull PluginDescriptor descriptor,
@@ -24,13 +27,19 @@ public class SakuraUIPluginController extends BaseController {
         myDescriptor = descriptor;
         myController = controllerManager;
 
-        myController.registerController("/lesnik.html", this);
+        myController.registerController(Constants.INCLUDE_URL, this);
     }
 
     @Nullable
     @Override
     protected ModelAndView doHandle(@NotNull HttpServletRequest httpServletRequest, @NotNull HttpServletResponse httpServletResponse) throws Exception {
-        ModelAndView mv = new ModelAndView(myDescriptor.getPluginResourcesPath("basic-plugin.jsp"));
+        ModelAndView mv = new ModelAndView(myDescriptor.getPluginResourcesPath("tab-plugin.jsp"));
+        PluginUIContext context = PluginUIContext.getFromRequest(httpServletRequest);
+
+        LOG.warn("SAKURA DEMO PLUGIN CONTROLLER: " + context);
+
+        // The token below is just a randomly generated string
+        mv.getModel().put("token", "gasCs03bY2LjivX0lv0-cgolJO6qAZYxSWA6e1q");
         return mv;
     }
 }

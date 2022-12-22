@@ -14,9 +14,9 @@ public class SakuraUIBTPluginPage extends SimpleCustomTab {
                                 @NotNull PluginDescriptor descriptor) {
         super(pagePlaces,
                 new PlaceId("SAKURA_BUILD_CONF@TAB"),
-                "Sakura",
-                descriptor.getPluginResourcesPath("basic-plugin.jsp"),
-                "Sakura Related Tab (BT)");
+                Constants.TAB_ID,
+                Constants.INCLUDE_URL,
+                Constants.TAB_TITLE);
 
         register();
         addJsFile(descriptor.getPluginResourcesPath("js/main.js"));
