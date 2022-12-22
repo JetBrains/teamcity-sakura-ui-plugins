@@ -1,16 +1,36 @@
 package com.demoDomain.teamcity.demoPlugin.controllers;
 
+import jetbrains.buildServer.controllers.BaseController;
+import jetbrains.buildServer.serverSide.SBuildServer;
 import jetbrains.buildServer.web.openapi.*;
 import jetbrains.buildServer.web.openapi.PluginDescriptor;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import org.springframework.web.servlet.ModelAndView;
 
-public class SakuraUIPluginController {
-    private static final String PLUGIN_NAME = "SakuraUI-Plugin";
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class SakuraUIPluginController extends BaseController {
+    PluginDescriptor myDescriptor;
+    WebControllerManager myController;
 
     public SakuraUIPluginController(
             @NotNull PluginDescriptor descriptor,
-            @NotNull PagePlaces places
-            ) {
-        new SimplePageExtension(places, PlaceId.SAKURA_HEADER_NAVIGATION_AFTER, PLUGIN_NAME, descriptor.getPluginResourcesPath("basic-plugin.jsp")).addCssFile("basic-plugin.css").register();
+            WebControllerManager controllerManager,
+            SBuildServer server
+    ) {
+        super(server);
+        myDescriptor = descriptor;
+        myController = controllerManager;
+
+        myController.registerController("/lesnik.html", this);
+    }
+
+    @Nullable
+    @Override
+    protected ModelAndView doHandle(@NotNull HttpServletRequest httpServletRequest, @NotNull HttpServletResponse httpServletResponse) throws Exception {
+        ModelAndView mv = new ModelAndView(myDescriptor.getPluginResourcesPath("basic-plugin.jsp"));
+        return mv;
     }
 }

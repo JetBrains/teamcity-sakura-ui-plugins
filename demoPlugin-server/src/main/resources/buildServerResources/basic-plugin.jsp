@@ -1,9 +1,7 @@
-<%@ include file="/include.jsp" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@include file="/include-internal.jsp"%>
 
-<c:if test="${not empty buildType}">
-    <div>
-        The selected build configuration: <c:out value="${buildType.name}"/>
-    </div>
-</c:if>
-
-<div class="basic-plugin-wrapper">Here is a basic plugin.</div>
+<div class="basic-plugin-wrapper">
+  <span class="text">Here is a basic plugin.</span>
+</div>
