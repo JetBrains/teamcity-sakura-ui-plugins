@@ -4,5 +4,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
        default-autowire="constructor">
     <bean id="Controller" class="com.demoDomain.teamcity.demoPlugin.controllers.SakuraUIPluginController"></bean>
-    <bean id="MavenTab" class="com.demoDomain.teamcity.demoPlugin.controllers.SakuraUIPluginPage"></bean>
+    <bean id="ClassicBuildTab" class="com.demoDomain.teamcity.demoPlugin.controllers.ClassicUIBuildPluginPage"></bean>
+    <bean id="BTTab" class="com.demoDomain.teamcity.demoPlugin.controllers.SakuraUIBTPluginPage"></bean>
+    <bean id="ProjectTab" class="com.demoDomain.teamcity.demoPlugin.controllers.SakuraUIProjectPluginPage"></bean>
+    <bean id="BuildTab" class="com.demoDomain.teamcity.demoPlugin.controllers.SakuraUIBuildPluginPage"></bean>
 </beans>
