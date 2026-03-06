@@ -16,6 +16,8 @@
     "@jetbrains/ring-ui": "^4.0.26",
     "@jetbrains/teamcity-api": "^2021.1.1-v.0",
     "classnames": "^2.3.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "typescript": "^4.3.5"
   },
   "devDependencies": {
